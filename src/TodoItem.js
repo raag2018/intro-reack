@@ -7,19 +7,32 @@ const todos = [
 	{text: "Comida 4", complete: false},
   ];
 function TodoItem(){
+	const onComplete = (todoComplete) => {
+		alert('Ya completaste el TODO ' + todoComplete);
+	}
+	const onDelete = (todoDelete) => {
+		alert('Borraste el TODO ' + todoDelete);
+	}
 	return (
 		<React.Fragment>
 		{
             todos.map(todo => (
-			  	<li key = {todo.key} className='todoItem'>
-					<span className={`Icon Icon-check ${todo.complete && 'Icon-check--active'}`}>
-						C 
+			  	<li key = {todo.text} className='todoItem alert alert-info'>
+					
+					<span  
+					 className={` Icon Icon-check ${todo.complete && 'Icon-check--active'}`}
+					 onClick={() => onComplete(todo.text)}
+					 >
+						
+						<i className="fa-solid fa-circle-check"></i>
 					</span>
-					<p className={`todoItem ${todo.complete && 'todoItem-p--complete'}`}>
+					<p className={`todoItem-p ${todo.complete && 'todoItem-p--complete'}`}>
 						{todo.text}
 					</p>
-					
-					<span className='Icon Icon-delete'> X</span>
+					{/*<button type="button" className="btn-close " data-bs-dismiss="alert" aria-label="Close"></button>*/}
+					<span className='Icon Icon-delete'
+						onClick={() => onDelete(todo.text)}
+					> X</span>
 				</li>
 			))
         }
