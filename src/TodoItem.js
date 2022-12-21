@@ -1,13 +1,7 @@
 import React from 'react';
 import "./css/TodoItem.css";
 
-function TodoItem({text, completed}){
-	const onComplete = (todoComplete) => {
-		alert('Ya completaste el TODO ' + todoComplete);
-	}
-	const onDelete = (todoDelete) => {
-		alert('Borraste el TODO ' + todoDelete);
-	}
+function TodoItem({text, completed, onComplete, onDelete}){
 	return (
 		<React.Fragment>
 		{
@@ -16,7 +10,7 @@ function TodoItem({text, completed}){
 					
 					<span  
 					 className={` Icon Icon-check ${completed && 'Icon-check--active'}`}
-					 onClick={() => onComplete(text)}
+					 onClick={onComplete}
 					 >
 						
 						<i className="fa-solid fa-circle-check"></i>
@@ -26,7 +20,7 @@ function TodoItem({text, completed}){
 					</p>
 					{/*<button type="button" className="btn-close " data-bs-dismiss="alert" aria-label="Close"></button>*/}
 					<span className='Icon Icon-delete'
-						onClick={() => onDelete(text)}
+						onClick={onDelete}
 					> X</span>
 				</li>
 			//))
