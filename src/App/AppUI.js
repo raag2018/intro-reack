@@ -22,6 +22,7 @@ totalTodos={totalTodos} completeTodos={completeTodos}
   setSearchValue = {setSearchValue}
 */
 function AppUI() {
+  const {error, loading, searchTodo, completedTodo, deleteTodo} = React.useContext(TodoContext);
   return (
     <React.Fragment>
       <TodoCounter   />
@@ -29,9 +30,7 @@ function AppUI() {
        <TodoSearch
       
        />
-        <TodoContext.Consumer>  
-          {
-            ({error, loading, searchTodo, completedTodo, deleteTodo}) => (
+       
               <TodoList>
                 {error && <p>Lo sentimos, ha habido un error.</p>}
                 {loading && <p>Estamos cargando la información.</p>}
@@ -47,10 +46,7 @@ function AppUI() {
                     ))
                 }
               </TodoList>
-            )
-          }
-       
-       </TodoContext.Consumer>   
+     
        <CreateTodoButton/>
      
     </React.Fragment>
