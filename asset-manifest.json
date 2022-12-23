@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/intro-reack/static/css/main.3b7a2aac.css",
+    "main.js": "/intro-reack/static/js/main.778912c6.js",
+    "index.html": "/intro-reack/index.html",
+    "main.3b7a2aac.css.map": "/intro-reack/static/css/main.3b7a2aac.css.map",
+    "main.778912c6.js.map": "/intro-reack/static/js/main.778912c6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3b7a2aac.css",
+    "static/js/main.778912c6.js"
+  ]
+}
