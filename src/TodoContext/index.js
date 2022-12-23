@@ -3,6 +3,7 @@ import { useLocalStore } from './useLocalStorage';
 const TodoContext = React.createContext();
 function TodoProvider(props){
     const {item: todos, saveItem: saveTodos, loading, error} = useLocalStore('TODOS_V1',[]);
+    const [openModal, setOpenModal] = React.useState(false);
         const [searchValue, setSearchValue] = React.useState('');
         const completeTodos = todos.filter(todo => !!todo.complete).length;
         const totalTodos = todos.length;
@@ -17,6 +18,14 @@ function TodoProvider(props){
           } );
         }
        
+        const addTodo  = (text) => {
+          const newTodos = [...todos];
+          newTodos.push({
+            complete: false,
+            text: text,
+          });
+          saveTodos(newTodos);
+        }
         const completedTodo  = (text) => {
           const todoIndex = todos.findIndex(todo => todo.text === text);
           const newTodos = [...todos];
@@ -43,8 +52,11 @@ function TodoProvider(props){
             searchValue,
             setSearchValue,
             searchTodo, 
+            addTodo,
             completedTodo,
             deleteTodo, 
+            openModal,
+            setOpenModal,
         }}>
             {props.children}
         </TodoContext.Provider>

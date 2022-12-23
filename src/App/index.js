@@ -3,14 +3,14 @@ import React from 'react';
 import { TodoProvider } from '../TodoContext';
 import { AppUI } from './AppUI';
 import './App.css';
-const defaultTodos = [
+/*const defaultTodos = [
 	{text: "Comida 1", complete: false},
 	{text: "Comida 2", complete: true},
 	{text: "Comida 3", complete: false},
 	{text: "Comida 4", complete: false},
   ];
 
-/* loading={loading}
+ loading={loading}
       error={error}
       totalTodos={totalTodos} 
       completeTodos={completeTodos}
